@@ -6,7 +6,7 @@ pandas
 joblib
 requests
 plotly
-tensorflow
+tensorflow==2.15.1
 ultralytics
 Pillow
 gdown
