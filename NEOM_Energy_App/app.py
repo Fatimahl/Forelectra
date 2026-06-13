@@ -148,7 +148,7 @@ def go(page):
 # =========================
 # MODEL PATHS
 # =========================
-MODEL_DIR = "models"
+MODEL_DIR = "."
 
 PATHS = {
     "vehicle": os.path.join(MODEL_DIR, "vehicle_detection_model.pt"),
