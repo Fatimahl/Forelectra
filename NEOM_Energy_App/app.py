@@ -9,8 +9,12 @@ from datetime import datetime
 from PIL import Image
 import requests
 import plotly.graph_objects as pgo
-import tensorflow as tf
-from tensorflow.keras.models import load_model
+try:
+    import tensorflow as tf
+    from tensorflow.keras.models import load_model
+    TF_AVAILABLE = True
+except:
+    TF_AVAILABLE = False
 import gdown
 from ultralytics import YOLO
 
@@ -181,7 +185,10 @@ def load_models():
     if os.path.exists(PATHS["vehicle"]):
         models["vehicle"] = YOLO(PATHS["vehicle"])
 
-    for key in ["crowd", "land_cover", "land_use", "weather", "area_type"]:
+    if TF_AVAILABLE:
+        for key in ["crowd", "land_cover", "land_use", "weather", "area_type"]:
+            if os.path.exists(PATHS[key]):
+                models[key] = load_model(PATHS[key], compile=False)
         if os.path.exists(PATHS[key]):
             models[key] = load_model(PATHS[key], compile=False)
 
