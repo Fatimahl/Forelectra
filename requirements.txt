@@ -1,0 +1,12 @@
+streamlit
+folium
+streamlit-folium
+numpy
+pandas
+joblib
+requests
+plotly
+tensorflow
+ultralytics
+Pillow
+gdown
