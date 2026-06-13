@@ -1,12 +1,11 @@
 streamlit
 folium
 streamlit-folium
-numpy
+numpy<2
 pandas
 joblib
 requests
 plotly
-tensorflow==2.15.1
 ultralytics
 Pillow
 gdown
