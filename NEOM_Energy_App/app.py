@@ -11,7 +11,7 @@ import requests
 import plotly.graph_objects as pgo
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-
+import gdown
 from ultralytics import YOLO
 
 # =========================
@@ -156,6 +156,20 @@ PATHS = {
     "area_type": os.path.join(MODEL_DIR, "area_type_model.h5"),
 }
 
+# =========================
+# DOWNLOAD LARGE MODEL
+# =========================
+
+LAND_USE_FILE_ID = "1c1f4l27Yp-2sni-UTU4-OjfXjfWr6MIu"
+
+if not os.path.exists(PATHS["land_use"]):
+    os.makedirs(MODEL_DIR, exist_ok=True)
+
+    gdown.download(
+        f"https://drive.google.com/uc?id={LAND_USE_FILE_ID}",
+        PATHS["land_use"],
+        quiet=False
+    )
 
 # =========================
 # LOAD MODELS
